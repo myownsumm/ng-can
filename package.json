@@ -1,6 +1,6 @@
 {
   "name": "ng-can",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple package to handle Angular UI availabilities and permissions",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
