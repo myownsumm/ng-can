@@ -2,7 +2,6 @@
   "name": "ng-can",
   "version": "1.0.0",
   "description": "A simple package to handle Angular UI availabilities and permissions",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +14,22 @@
   "bugs": {
     "url": "https://github.com/myownsumm/ng-can/issues"
   },
-  "homepage": "https://github.com/myownsumm/ng-can#readme"
+  "homepage": "https://github.com/myownsumm/ng-can#readme",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "main": "bundles/ng-can.umd.js",
+  "module": "fesm5/ng-can.js",
+  "es2015": "fesm2015/ng-can.js",
+  "esm5": "esm5/ng-can.js",
+  "esm2015": "esm2015/ng-can.js",
+  "fesm5": "fesm5/ng-can.js",
+  "fesm2015": "fesm2015/ng-can.js",
+  "typings": "ng-can.d.ts",
+  "metadata": "ng-can.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
 }
