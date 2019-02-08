@@ -5,5 +5,5 @@ export declare class NgCanService implements INgCanPermissionsCheckable {
     loadPermissions(permissions: {
         [key: string]: boolean;
     }): void;
-    checkConditions(conditions: INgCanPermissions, strict: boolean): boolean;
+    checkConditions(conditions: INgCanPermissions, strict?: boolean): boolean;
 }

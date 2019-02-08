@@ -25,24 +25,34 @@
             };
         /**
          * @param {?} conditions
-         * @param {?} strict
+         * @param {?=} strict
          * @return {?}
          */
         NgCanService.prototype.checkConditions = /**
          * @param {?} conditions
-         * @param {?} strict
+         * @param {?=} strict
          * @return {?}
          */
             function (conditions, strict) {
                 /** @type {?} */
-                var show = true;
+                var allowed = true;
                 for (var key in conditions) {
-                    if ((strict && this._permissions[key] === undefined) || this._permissions[key] === conditions[key]) {
-                        show = false;
+                    if (!conditions.hasOwnProperty(key)) {
+                        continue;
+                    }
+                    if (this._permissions[key] === undefined) {
+                        if (!strict) {
+                            continue;
+                        }
+                        allowed = false;
+                        break;
+                    }
+                    if (this._permissions[key] !== conditions[key]) {
+                        allowed = false;
                         break;
                     }
                 }
-                return show;
+                return allowed;
             };
         NgCanService.decorators = [
             { type: i0.Injectable, args: [{
