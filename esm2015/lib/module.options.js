@@ -1,0 +1,8 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { InjectionToken } from '@angular/core';
+/** @type {?} */
+export const MODULE_OPTIONS = new InjectionToken('module.options');
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9kdWxlLm9wdGlvbnMuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9uZy1jYW4vIiwic291cmNlcyI6WyJsaWIvbW9kdWxlLm9wdGlvbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxjQUFjLEVBQUUsTUFBTSxlQUFlLENBQUM7O0FBRy9DLE1BQU0sT0FBTyxjQUFjLEdBQUcsSUFBSSxjQUFjLENBQWlCLGdCQUFnQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0aW9uVG9rZW4gfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IElNb2R1bGVPcHRpb25zIH0gZnJvbSAnLi9uZy1jYW4udHlwaW5ncyc7XG5cbmV4cG9ydCBjb25zdCBNT0RVTEVfT1BUSU9OUyA9IG5ldyBJbmplY3Rpb25Ub2tlbjxJTW9kdWxlT3B0aW9ucz4oJ21vZHVsZS5vcHRpb25zJyk7XG5cbiJdfQ==

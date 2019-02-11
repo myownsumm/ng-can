@@ -54,6 +54,54 @@
                 }
                 return allowed;
             };
+        /**
+         * @param {?} el
+         * @param {?} hideApproach
+         * @return {?}
+         */
+        NgCanService.prototype.hideElement = /**
+         * @param {?} el
+         * @param {?} hideApproach
+         * @return {?}
+         */
+            function (el, hideApproach) {
+                switch (hideApproach) {
+                    case 'visibility': {
+                        el.nativeElement.style.visibility = 'hidden';
+                        break;
+                    }
+                    case 'hidden': {
+                        el.nativeElement.hidden = true;
+                        break;
+                    }
+                    default:
+                        throw new Error("Unknown Hide Approach " + hideApproach);
+                }
+            };
+        /**
+         * @param {?} el
+         * @param {?} hideApproach
+         * @return {?}
+         */
+        NgCanService.prototype.showElement = /**
+         * @param {?} el
+         * @param {?} hideApproach
+         * @return {?}
+         */
+            function (el, hideApproach) {
+                switch (hideApproach) {
+                    case 'visibility': {
+                        el.nativeElement.style.visibility = 'visible';
+                        break;
+                    }
+                    case 'hidden': {
+                        el.nativeElement.hidden = false;
+                        break;
+                    }
+                    default:
+                        throw new Error("Unknown Hide Approach " + hideApproach);
+                }
+            };
         NgCanService.decorators = [
             { type: i0.Injectable, args: [{
                         providedIn: 'root'
@@ -69,13 +117,21 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /** @type {?} */
+    var MODULE_OPTIONS = new i0.InjectionToken('module.options');
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
     var NgCanDirective = /** @class */ (function () {
-        function NgCanDirective(el, ngCanService) {
+        function NgCanDirective(el, ngCanService, options) {
             this.el = el;
             this.ngCanService = ngCanService;
+            this.options = options;
             this.conditions = {};
             this.permissions = {};
-            this.hideElement();
+            this.hideApproach = this.options.hide_approach;
         }
         /**
          * @return {?}
@@ -84,6 +140,7 @@
          * @return {?}
          */
             function () {
+                this.hideElement();
                 this.ngCanService.loadPermissions(this.permissions);
                 /** @type {?} */
                 var needToShow = this.ngCanService.checkConditions(this.conditions, this.strictMode);
@@ -98,7 +155,7 @@
          * @return {?}
          */
             function () {
-                this.el.nativeElement.style.visibility = 'hidden';
+                this.ngCanService.hideElement(this.el, this.hideApproach);
             };
         /**
          * @return {?}
@@ -107,7 +164,7 @@
          * @return {?}
          */
             function () {
-                this.el.nativeElement.style.visibility = 'visible';
+                this.ngCanService.showElement(this.el, this.hideApproach);
             };
         NgCanDirective.decorators = [
             { type: i0.Directive, args: [{
@@ -118,13 +175,15 @@
         NgCanDirective.ctorParameters = function () {
             return [
                 { type: i0.ElementRef },
-                { type: NgCanService }
+                { type: NgCanService },
+                { type: undefined, decorators: [{ type: i0.Inject, args: [MODULE_OPTIONS,] }] }
             ];
         };
         NgCanDirective.propDecorators = {
             conditions: [{ type: i0.Input }],
             permissions: [{ type: i0.Input }],
-            strictMode: [{ type: i0.Input }]
+            strictMode: [{ type: i0.Input }],
+            hideApproach: [{ type: i0.Input }]
         };
         return NgCanDirective;
     }());
@@ -136,6 +195,25 @@
     var NgCanModule = /** @class */ (function () {
         function NgCanModule() {
         }
+        /**
+         * @param {?} options
+         * @return {?}
+         */
+        NgCanModule.forChild = /**
+         * @param {?} options
+         * @return {?}
+         */
+            function (options) {
+                return {
+                    ngModule: NgCanModule,
+                    providers: [
+                        {
+                            provide: MODULE_OPTIONS,
+                            useValue: options
+                        }
+                    ]
+                };
+            };
         NgCanModule.decorators = [
             { type: i0.NgModule, args: [{
                         declarations: [
@@ -163,6 +241,7 @@
     exports.NgCanService = NgCanService;
     exports.NgCanModule = NgCanModule;
     exports.NgCanDirective = NgCanDirective;
+    exports.ɵa = MODULE_OPTIONS;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
