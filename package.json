@@ -1,6 +1,15 @@
 {
   "name": "ng-can",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "keywords": [
+    "rbac",
+    "angular",
+    "access control",
+    "permissions",
+    "conditions",
+    "hide element",
+    "show element"
+  ],
   "description": "A simple package to handle Angular UI availabilities and permissions",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
